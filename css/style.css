@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('../imgs/pexels-jaime-reimer-1376930-2662116.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.containerAll{
+    background-color: rgba(240, 248, 255, 0.5);
+    padding: 20px;
+    border: 4px solid rgba(255, 255, 255, 0.597);
+    border-radius: 10px;
+}
+
+.containerAll > #title{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.865);
+    margin-bottom: 10px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.containerAll label{
+    display: block;
+}
+
+.filtroPesquisa{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+input{
+    border: 2px solid rgba(0, 0, 0, 0.523);
+    padding: 5px;
+}
+
+#btnAddTarefa{
+    width: 60px;
+    height: 30px;
+    border: 2px solid rgba(0, 0, 0, 0.646);
+    color: green;
+    font-size: 20px;
+    background-color: transparent;
+    position: relative;
+    top: 4px;
+}
+
+#btnCancelarPesquisa{
+    width: 60px;
+    height: 30px;
+    border: 2px solid rgba(0, 0, 0, 0.646);
+    color: red;
+    font-size: 20px;
+    background-color: transparent;
+    position: relative;
+    top: 4px;
+}
+
+#btnAddTarefa:hover {
+    transition: 0.3s;
+    background-color: rgba(0, 255, 0, 0.2);
+    cursor: pointer;
+}
+#btnCancelarPesquisa:hover {
+    transition: 0.3s;
+    background-color: rgba(255, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+#filtroTarefa{
+    position: relative;
+    top: 4px;
+    height: 31px;
+    border: 2px solid rgba(0, 0, 0, 0.523);
+}
+
+#btnSalvarEdicao, #btnCancelarEdicao{
+    height: 32px;
+    padding: 5px;
+    border: 2px solid rgba(0, 0, 0, 0.523);
+}
+
+#btnSalvarEdicao:hover{
+    transition: 0.3s;
+    background-color: rgba(0, 255, 0, 0.2);
+    cursor: pointer;
+}
+
+#btnCancelarEdicao:hover{
+    transition: 0.3s;
+    background-color: rgba(255, 0, 0, 0.2);
+    cursor: pointer;
+}

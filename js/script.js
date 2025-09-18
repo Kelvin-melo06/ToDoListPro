@@ -2,7 +2,7 @@ const tarefas = document.getElementById('addTarefa');
 const btnAddTarefas = document.getElementById('btnAddTarefa');
 const containerTarefas = document.getElementById('tarefasContainer');
 
-let tarefasArray = JSON.parse(localStorage.setItem("tarefas")) || [];
+let tarefasArray = JSON.parse(localStorage.getItem("tarefas")) || [];
 
 // Mostrar tarefas já salvas quando carregar a página
 tarefasArray.forEach(t => {

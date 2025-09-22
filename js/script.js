@@ -70,3 +70,22 @@ function criarTarefaDom(texto, id, feita){
         window.location.href = `editar.html?id=${id}`;
     });
 }
+
+const filtro = document.getElementById('filtroTarefa');
+
+filtro.addEventListener('change', () =>{
+    const valorFiltro = filtro.value;
+
+    document.querySelectorAll('.tarefa').forEach(tarefaDiv => {
+        const id = Number(tarefaDiv.dataset.id);
+        const tarefa = tarefasArray.find(t => t.id === id);
+
+        if(valorFiltro === "todas"){
+            tarefaDiv.style.display = "flex";
+        } else if(valorFiltro === "feitas"){
+            tarefaDiv.style.display = tarefa.feita ? "flex" : "none";
+        } else if(valorFiltro === "pendentes"){
+            tarefaDiv.style.display = !tarefa.feita ? "flex" : "none";
+        }
+    })
+})

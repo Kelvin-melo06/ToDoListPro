@@ -104,3 +104,30 @@ input{
     background-color: rgba(255, 0, 0, 0.2);
     cursor: pointer;
 }
+
+.tarefa {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(0, 0, 0, 0.523);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.botoes{
+    display: flex;
+    gap: 5px;
+}
+
+.botoes button{
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba(0, 0, 0, 0.523);
+    background-color: transparent;
+    font-size: 16px;
+}
+
+

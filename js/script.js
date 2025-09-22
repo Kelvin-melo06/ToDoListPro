@@ -38,17 +38,27 @@ function criarTarefaDom(texto, id, feita){
     const btnFeita = document.createElement("button");
     btnFeita.textContent = "✔";
 
+    const botoesDiv = document.createElement("div");
+    botoesDiv.classList.add("botoes");
+
     const btnEditar = document.createElement("button");
     btnEditar.textContent = "✏️";
 
     const btnRemover = document.createElement("button");
     btnRemover.textContent = "❌";
 
-    tarefaDiv.appendChild(span);
+
     tarefaDiv.appendChild(btnFeita);
     tarefaDiv.appendChild(btnEditar);
     tarefaDiv.appendChild(btnRemover);
     containerTarefas.appendChild(tarefaDiv);
+
+    botoesDiv.appendChild(btnFeita);
+    botoesDiv.appendChild(btnEditar);
+    botoesDiv.appendChild(btnRemover);
+    tarefaDiv.appendChild(span);
+    tarefaDiv.appendChild(botoesDiv);
+    
 
     // Marcar como feita
     btnFeita.addEventListener("click", () =>{
@@ -87,5 +97,29 @@ filtro.addEventListener('change', () =>{
         } else if(valorFiltro === "pendentes"){
             tarefaDiv.style.display = !tarefa.feita ? "flex" : "none";
         }
+    })
+})
+
+const inputPesquisa = document.getElementById('pesquisarTarefa');
+const btnCancelarPesquisa = document.getElementById('btnCancelarPesquisa');
+
+inputPesquisa.addEventListener('input', () =>{
+    const textoPesquisa = inputPesquisa.value.toLocaleLowerCase();
+
+    document.querySelectorAll('.tarefa').forEach(tarefaDiv => {
+        const span = tarefaDiv.querySelector('span');
+        const textoTarefa = span.textContent.toLowerCase();
+        if(textoTarefa.includes(textoPesquisa)){
+            tarefaDiv.style.display = "flex";
+        } else{
+            tarefaDiv.style.display = "none";
+        }
+    })
+})
+
+btnCancelarPesquisa.addEventListener('click', () =>{
+    inputPesquisa.value = "";
+    document.querySelectorAll('.tarefa').forEach(tarefaDiv => {
+        tarefaDiv.style.display = "flex";
     })
 })

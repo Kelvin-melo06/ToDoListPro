@@ -70,7 +70,7 @@ input{
 }
 
 #btnAddTarefa:hover {
-    transition: 0.3s;
+    transition: 0.2s;
     background-color: rgba(0, 255, 0, 0.2);
     cursor: pointer;
 }
@@ -80,7 +80,7 @@ input{
     cursor: pointer;
 }
 
-#filtroTarefa{
+#filtroTarefas{
     position: relative;
     top: 4px;
     height: 31px;

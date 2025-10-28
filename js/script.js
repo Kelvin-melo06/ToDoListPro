@@ -24,7 +24,7 @@ const containerTarefas = document.getElementById('tarefasContainer');
 Função encarregada de ou criar o local dentro do storage onde serão colocados os obj de tarefa, ou retornar uma array vazia, caso for a primeira iteração do usuario essa função retornara uma array vazia já que não temos nada no localStorage, porém caso tenha algo no storage a gente pega e transforma para OBJ JSON, o nome dado ao nosso armário é "tarefas" 
 */
 function carregarTarefas(){
-    return JSON.parse(localStorage.getItem("tarefas")) || [];
+    return JSON.parse(localStorage.getItem("tarefas") || []);
 }
 
 
@@ -136,6 +136,10 @@ function aplicarFiltro(){
     })
 }
 
+
+/*
+Na função aplicarPesquisa nós pegamos o texto que está sendo digitado na input de pesquisa, percorremos todas as divs container de tarefas para pegarmos o span delas e ver se p texto que foi digitado na input contém o span da div
+*/
 function aplicarPesquisa(){
     const inputValor = inputPesquisa.value.toLowerCase();
 
@@ -167,6 +171,12 @@ function renderizarTarefas(tarefasArray){
 Função de inicialização, onde primeiro vamos chamar a função carregarTarefas() que vai retornar uma array vazia caso seja a primeira iteração do usuário, se não for a primeira iteração ele retorna o que tem lá dentro do localStorage, que seria uma array de obj que é onde contém os dados das tarefas que foram adicionadas.
 
 Caso seja a primeira iteração a função renderizarTarefas não ira renderizar nada pois o retorno de tarefasArray é uma array vazia. Depois temos a função principal, que é o evento de clique no btnAddTarefa, primeiro ele pega o que foi digitado no inputTarefa, ve se algo foi digitado, depois ele cria o obj de tarefa com a função criarTarefaObj, add esse obj dentro da array tarefasArray, salva no localStorage essa array.
+
+Em seguida agora com a array de obj na mão, e o obj em questão que precisamos criar o DOM, nós passamos ambos como argumento para função criarTarefaDom que vai cuidar de pegar os DADOS questão logica e aplicar o visual HTML DOM para o usuário.
+
+Em seguido no filtro aplicamos um evento no select que tem 3 opções por isso o evento de change, onde ele vai percorrer todos os containers e verificar o status booleano deles.
+
+Em seguida na input de Pesquisa, aplicamos um evento de input e acionamos uma função para aplicar a pesquisa correspondente
 */
 function iniciarToDoList(){
     let tarefasArray = carregarTarefas();
